@@ -1,0 +1,70 @@
+.content-main {
+    padding-top: 171px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 85px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        padding-top: 86px;
+    }
+}
+
+.is-act-loginpage {
+    padding-top: 30px;
+}
+
+.header-main {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    background: #FFFFFF 0% 0%;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.language-items {
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: normal;
+    color: $black;
+    margin-right: $spacer * 9;
+   
+
+    .language-item {
+        border-left: 1px solid;
+        margin-left: 3px;
+
+        &.item-last {
+            border: 0;
+        }
+    }
+
+    .language-form {
+        flex-direction: row-reverse;
+    }
+}
+
+.header-logo-main-img {
+    height: 78px;
+}
+
+.header-actions-btn {
+    padding: $spacer * 5 $spacer * 2;
+
+    .menu-button &{
+        padding-left: $spacer * 6;
+
+        .icon {
+            width: $spacer * 14;
+        }
+    }
+}
+
+.header-actions-col {
+    .icon {
+        width: 33px;
+        height: $spacer * 8;
+        color: $sw-color-brand-primary;
+    }
+}

@@ -1,0 +1,125 @@
+{
+  "name": "Picagram",
+  "author": "Shopware AG",
+  "views": [
+    "@Storefront",
+    "@Plugins",
+    "@Picagram"
+  ],
+  "style": [
+    "app/storefront/src/scss/overrides.scss",
+    "@Storefront",
+    "app/storefront/src/scss/base.scss"
+  ],
+  "script": [
+    "@Storefront",
+    "app/storefront/dist/storefront/js/picagram.js"
+  ],
+  "asset": [
+    "@Storefront",
+    "app/storefront/src/assets"
+  ],
+  "config": {
+    "fields": {
+      "sw-color-brand-primary": {
+        "helpText": {
+          "en-GB": "($sw-color-brand-primary)",
+          "de-DE": "($sw-color-brand-primary)"
+        },
+        "value": "#e59084",
+        "order": 100
+      },
+      "sw-color-brand-primary-hover": {
+        "label": {
+          "en-GB": "Primary hover color",
+          "de-DE": "Primary hover color"
+        },
+        "helpText": {
+          "en-GB": "($sw-color-brand-primary-hover)",
+          "de-DE": "($sw-color-brand-primary-hover)"
+        },
+        "type": "color",
+        "value": "#e59084",
+        "editable": true,
+        "block": "themeColors",
+        "order": 200
+      },
+      "sw-color-brand-secondary": {
+        "helpText": {
+          "en-GB": "($sw-color-brand-secondary)",
+          "de-DE": "($sw-color-brand-secondary)"
+        },
+        "value": "#e59084",
+        "order": 300
+      },
+      "sw-color-brand-secondary-hover": {
+        "label": {
+          "en-GB": "Secondary hover color",
+          "de-DE": "Secondary hover color"
+        },
+        "helpText": {
+          "en-GB": "($sw-color-brand-secondary-hover)",
+          "de-DE": "($sw-color-brand-secondary-hover)"
+        },
+        "type": "color",
+        "value": "#e59084",
+        "editable": true,
+        "block": "themeColors",
+        "order": 400
+      },
+      "sw-border-color": {
+        "helpText": {
+          "en-GB": "($sw-border-color)",
+          "de-DE": "($sw-border-color)"
+        },
+        "value": "#707070"
+      },
+      "sw-font-family-base": {
+        "value": "'Lato', sans-serif"
+      },
+      "sw-font-family-headline": {
+        "value": "'Lato', sans-serif"
+      },
+      "sw-headline-color": {
+        "helpText": {
+          "en-GB": "($sw-headline-color)",
+          "de-DE": "($sw-headline-color)"
+        },
+        "value": "$sw-color-brand-primary"
+      },
+      "sw-text-color": {
+        "helpText": {
+          "en-GB": "($sw-text-color)",
+          "de-DE": "($sw-text-color)"
+        },
+        "value": "#e59084"
+      },
+      "sw-text-color-light": {
+        "label": {
+          "en-GB": "Text colour light",
+          "de-DE": "Text colour light"
+        },
+        "helpText": {
+          "en-GB": "($sw-text-color-light)",
+          "de-DE": "($sw-text-color-light)"
+        },
+        "type": "color",
+        "value": "#fff",
+        "editable": true,
+        "block": "typography"
+      },
+      "sw-logo-desktop": {
+        "value": "/bundles/picagram/assets/logo/picamory-logo.png",
+        "fullWidth": false
+      },
+      "sw-logo-tablet": {
+        "value": "/bundles/picagram/assets/logo/picamory-logo.png",
+        "fullWidth": false
+      },
+      "sw-logo-mobile": {
+        "value": "/bundles/picagram/assets/logo/picamory-logo.png",
+        "fullWidth": false
+      }
+    }
+  }
+}

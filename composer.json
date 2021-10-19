@@ -1,0 +1,19 @@
+{
+  "name": "swag/theme-skeleton",
+  "description": "Theme skeleton plugin",
+  "type": "shopware-platform-plugin",
+  "version": "1.1.0",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Picagram\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Picagram\\Picagram",
+    "label": {
+      "de-DE": "Theme Picagram plugin",
+      "en-GB": "Theme Picagram plugin"
+    }
+  }
+}

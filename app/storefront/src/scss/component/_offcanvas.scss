@@ -1,0 +1,129 @@
+.offcanvas.navigation-offcanvas {
+    transform: translateY(-100%);
+    width: 100%;
+
+    &.is-open {
+        width: 100%;
+        background: transparent linear-gradient(90deg, #FFD06C 0%, #D78275 40%, #B42762 100%) 0% 0% no-repeat padding-box;
+        transform: translateY(0) !important;
+    }
+
+    .offcanvas-close {
+        background: transparent;
+        margin-left: -$spacer * 16;
+        padding-top: $spacer * 10;
+        padding-bottom: 80px;
+
+        @include media-breakpoint-up(md) {
+            margin-left: -176px;
+        }
+
+        &:hover {
+            background: transparent;
+        }
+
+        .icon-sm {
+            width: $spacer * 10;
+            height: $spacer * 8;
+            color: $white;
+        }
+    }
+
+    .offcanvas-content-container {
+        margin: auto;
+        width: 100%;
+        text-align: center;
+
+        @include media-breakpoint-up(md) {
+            width: 100%;
+        }
+    }
+}
+
+.navigation-offcanvas-overlay-content {
+    width: 100%;
+}
+
+.navigation-offcanvas-list-item {
+    background-color: transparent;
+    border: 0;
+
+    &:last-child {
+        border: 0;
+    }
+}
+
+.navigation-offcanvas-link {
+    color: $white;
+    font-size: 30px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: $spacer * 10;
+    justify-content: center;
+    padding-top: 0;
+
+    &:hover {
+        color: $white;
+    }
+
+    @include media-breakpoint-up(md) {
+        font-size: 50px;
+        margin-bottom: 98px;
+    }
+}
+
+.navigation-offcanvas-link-icon {
+    .icon-arrow-medium-right, .icon-arrow-medium-left {
+        width: $spacer * 8;
+        height: $spacer * 8;
+        color: $white;
+        margin-left: $spacer;
+    }
+}
+
+.navigation-offcanvas-placeholder, .navigation-offcanvas-overlay {
+    background: transparent linear-gradient(90deg, #FFD06C 0%, #D78275 40%, #B42762 100%) 0% 0% no-repeat padding-box;
+}
+
+.navigation-offcanvas-link {
+    &.is-back-link {
+        border: 0;
+        color: $white;
+    }
+}
+
+
+.offcanvas.is-open {
+    .offcanvas-close {
+        svg {
+            top: 1px;
+        }
+    }
+
+    .offcanvas-cart-promotion-form {
+        .form-control {
+            padding: 10px;
+            font-size: 13px;
+        }
+    }
+
+    .cart-item-details-container {
+        .cart-item-label {
+            font-size: 19px;
+        }
+    }
+
+    .offcanvas-cart-header {
+        font-size: 35px;
+    }
+
+    .cart-item-quantity {
+        margin-left: -30px;
+    }
+
+    .cart-item-price {
+        font-size: 20px;
+    }
+}
+
+

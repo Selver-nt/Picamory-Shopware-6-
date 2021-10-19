@@ -1,0 +1,33 @@
+{% block page_account_sidebar_menu %}
+    {% if not context.customer.guest %}
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                
+                <a href="{{ path('frontend.account.home.page') }}"
+                    title="{{ "account.overviewLink"|trans|striptags }}"
+                    class="list-group-item list-group-item-action account-aside-item{% if activeRoute is same as('frontend.account.home.page') %} is-active{% endif %}">
+                    {% sw_icon 'settings' style { 'pack': 'picagram' } %}
+                    <span class="d-none d-md-inline">Einstellungen</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('frontend.account.order.page') }}"
+                    title="{{ "account.ordersLink"|trans|striptags }}"
+                    class="list-group-item list-group-item-action account-aside-item{% if activeRoute is same as('frontend.account.order.page') %} is-active{% endif %}">
+                    {% sw_icon 'shopping-outline' style { 'pack': 'picagram' } %}
+                    <span class="d-none d-md-inline">Meine Bestellungen</span>
+                </a>
+            </li>
+
+            
+            <li class="nav-item">
+                <a href="/Contact/"
+                    title="{{ "account.ordersLink"|trans|striptags }}"
+                    class="list-group-item list-group-item-action account-aside-item{% if activeRoute is same as('frontend.contact.page') %} is-active{% endif %}">
+                    {% sw_icon 'help' style { 'pack': 'picagram' } %}
+                    <span class="d-none d-md-inline">Contact</span>
+                </a>
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}

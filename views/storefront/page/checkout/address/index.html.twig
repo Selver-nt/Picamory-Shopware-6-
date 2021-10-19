@@ -1,0 +1,26 @@
+{% sw_extends '@Storefront/storefront/page/checkout/address/index.html.twig' %}
+
+{% block base_header %}
+    <header class="header-main">
+        <div class="container">
+            {% block base_header_inner %}
+                {% sw_include '@Storefront/storefront/layout/header/header.html.twig' %}
+            {% endblock %}
+        </div>
+       
+    </header>
+{% endblock %}
+
+
+
+
+{% block page_checkout_address_login_toggle %}
+    <div class="register-login-collapse-toogle">
+        <a href="#loginCollapse"
+            class="login-collapse-toggle"
+            data-toggle="collapse"
+            aria-expanded="false">
+            <strong>{{ "checkout.addressLoginToggle"|trans|sw_sanitize }}</strong> </a>
+    </div>
+{% endblock %}
+    

@@ -1,0 +1,22 @@
+{% sw_extends '@Storefront/storefront/page/account/order-history/index.html.twig' %}
+
+{% block page_account_orders_welcome %}
+<div class="account-welcome">
+    <h1 class="account-name text-center">Meine Bestellung</h1>
+</div>
+{% endblock %}
+
+{% block page_account_orders_overview %}
+    <div class="row account-orders-overview">
+        {% block page_account_orders_table %}
+            {% block page_account_orders_table_body %}
+                {% for order in page.orders %}
+                    <div class="col-md-8 table order-table"
+                            data-order-detail-loader="true">
+                        {% sw_include '@Storefront/storefront/page/account/order-history/order-item.html.twig' %}
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        {% endblock %}
+    </div>
+{% endblock %}

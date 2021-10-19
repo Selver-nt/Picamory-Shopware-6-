@@ -1,0 +1,130 @@
+{% sw_extends '@Storefront/storefront/page/checkout/_page.html.twig' %}
+
+{% block base_head %}
+    {% sw_include '@Storefront/storefront/page/checkout/cart/meta.html.twig' %}
+{% endblock %}
+
+{% block page_checkout_container %}
+    {% if page.cart.lineItems.count is same as(0) %}
+        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+            type: "info",
+            content: "checkout.cartEmpty"|trans|sw_sanitize
+        } %}
+
+        {% set messages = app.flashes %}
+
+        {% if messages.danger|length > 0 %}
+            <div class="flashbags">
+                {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with { type: 'danger', list: messages.danger } %}
+            </div>
+        {% endif %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block page_checkout_main_content %}
+    {% block page_checkout_cart %}
+        {% block page_checkout_cart_header %}{% endblock %}
+
+        {% block page_checkout_cart_product_table %}
+            <div class="card checkout-product-table">
+                <div class="card-body">
+                    {% block page_checkout_cart_table_header %}
+                        {% sw_include '@Storefront/storefront/page/checkout/cart/cart-product-header.html.twig' %}
+                    {% endblock %}
+
+                    {% block page_checkout_cart_table_items %}
+                        {% for lineItem in page.cart.lineItems %}
+                            {% block page_checkout_cart_table_item %}
+                                {% block page_checkout_item %}
+                                    {% sw_include '@Storefront/storefront/page/checkout/checkout-item.html.twig' %}
+                                {% endblock %}
+                            {% endblock %}
+                        {% endfor %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block page_checkout_cart_hidden_line_items_information %}
+            {% sw_include '@Storefront/storefront/component/checkout/hidden-line-items-information.html.twig' with {
+                lineItems: page.cart.lineItems
+            } %}
+        {% endblock %}
+
+        {% block page_checkout_cart_add_product_and_shipping %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}
+
+{% block page_checkout_aside_actions %}
+
+    <div class="mt-5 custom-control custom-checkbox cart-shipping-consent text-align-end">
+        <input class="custom-control-input" type="checkbox" id="cartShippingCheckbox" name="cartShippingCheckbox" checked>
+        <label for="cartShippingCheckbox" class="custom-control-label text-left">
+            {{ "cart.privacyText"|trans|sw_sanitize }}
+        </label>
+    </div>
+
+    <div class="checkout-aside-action text-right text-md-center text-xl-right">
+        <a class="btn btn-primary product-collapse" data-toggle="collapse" href="#collapseCartAddProduct" role="button" aria-expanded="false" aria-controls="collapseCartAddProduct">
+            {{ "cart.productCollapse"|trans|sw_sanitize }}
+        </a>
+        
+        <a href="{{ path('frontend.checkout.confirm.page') }}"
+            class="btn btn-primary submit-button"
+            title="{{ "checkout.proceedLink"|trans|striptags }}">
+            {{ "checkout.proceedLink"|trans|sw_sanitize }}
+        </a>
+    </div>
+
+    <div class="cart-add-product-container collapse" id="collapseCartAddProduct">
+        <form action="{{ path('frontend.checkout.product.add-by-number') }}"
+                data-form-csrf-handler="true"
+                class="cart-add-product"
+                method="post">
+
+            {% block page_checkout_cart_add_product_csrf %}
+                {{ sw_csrf('frontend.checkout.product.add-by-number') }}
+            {% endblock %}
+
+            {% block page_checkout_cart_add_product_redirect %}
+                <input type="hidden"
+                        name="redirectTo"
+                        value="frontend.checkout.cart.page">
+            {% endblock %}
+
+            {% block page_checkout_cart_add_product_input_group %}
+                <div class="input-group">
+                    {% block page_checkout_cart_add_product_label %}
+                        <label class="sr-only" for="addProductInput">
+                            {{ "checkout.addProductLabel"|trans|sw_sanitize }}
+                        </label>
+                    {% endblock %}
+
+                    {% block page_checkout_cart_add_product_input %}
+                        <input type="text"
+                                name="number"
+                                class="form-control"
+                                id="addProductInput"
+                                placeholder="{{ "checkout.addProductPlaceholder"|trans|striptags }}"
+                                aria-label="{{ "checkout.addProductLabel"|trans|striptags }}"
+                                aria-describedby="addProductButton"
+                                required="required">
+                    {% endblock %}
+
+                    {% block page_checkout_cart_add_product_submit %}
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary"
+                                    type="submit"
+                                    id="addProductButton">
+                                {% sw_icon 'checkmark' %}
+                            </button>
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </form>
+    </div>
+{% endblock %}

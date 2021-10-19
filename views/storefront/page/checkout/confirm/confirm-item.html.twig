@@ -1,0 +1,41 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/confirm-item.html.twig' %}
+
+{% block page_checkout_item_info %}
+    <div class="col-12 cart-item-info">
+        {% block page_checkout_item_info_inner %}
+            {{ parent() }}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block page_checkout_item_info_details_inner %}
+    <div class="cart-item-details-container">
+        {% block page_checkout_item_info_label %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% block page_checkout_item_info_variant_characteristics %}
+            {{ parent() }}
+        {% endblock %}
+
+        <div class="cart-item-quantity">
+            {{ "checkout.cartHeaderQuantity"|trans|sw_sanitize }}: {{ lineItem.quantity }}
+        </div>
+
+        <div class="text-left cart-item-total-price">
+            {{ lineItem.price.totalPrice }}{% block page_checkout_item_total_price_tax_symbol %}<span class="currency-total">EURO</span>{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_checkout_item_quantity %}
+{% endblock %}
+
+{% block page_checkout_item_unit_price %}
+{% endblock %}
+
+{% block page_checkout_item_total_price %}
+{% endblock %}
+
+{% block page_checkout_item_remove %}
+{% endblock %}

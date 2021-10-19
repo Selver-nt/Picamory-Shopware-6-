@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+    {% block layout_navigation_offcanvas_navigation_actions %}
+    {% endblock %}
+
+    {% sw_include '@Storefront/storefront/layout/navigation/offcanvas/categories.html.twig' with { navigation: navigation } %}
+{% endblock %}

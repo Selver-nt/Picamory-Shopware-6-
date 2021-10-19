@@ -1,0 +1,41 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-item.html.twig' %}
+
+{% block component_offcanvas_product_quantity_form %}
+    {% if lineItem.quantityInformation and lineItem.stackable %}
+        <form action="{{ path('frontend.checkout.line-item.change-quantity', {'id': id}) }}"
+              class="cart-item-quantity-container"
+              data-form-auto-submit="true"
+              method="post">
+
+            {% block component_offcanvas_product_quantity_form_csrf %}
+                {{ sw_csrf('frontend.checkout.line-item.change-quantity') }}
+            {% endblock %}
+
+            {% block component_offcanvas_product_quantity_form_redirect %}
+                <input type="hidden"
+                       name="redirectTo"
+                       value="frontend.cart.offcanvas"/>
+            {% endblock %}
+
+            {% set quantityInformation = lineItem.quantityInformation %}
+            {% if quantityInformation.maxPurchase %}
+                {% set maxQuantity = quantityInformation.maxPurchase %}
+            {% else %}
+                {% set maxQuantity = shopware.config.core.cart.maxQuantity %}
+            {% endif %}
+
+            {% block component_offcanvas_product_buy_quantity %}
+                <button class="btn btn-secondary decrease js-offcanvas-cart-change-quantity-btn" type="button">-</button>
+
+                <input type="text" class="form-control quantity-select form-control-lg js-offcanvas-cart-change-quantity"
+                       name="quantity"
+                       title="Quantity"
+                       value="{{ lineItem.quantity }}"
+                       max="{{ maxQuantity }}"
+                       min="{{ quantityInformation.minPurchase }}">
+
+                <button class="btn btn-secondary increase js-offcanvas-cart-change-quantity-btn" type="button">+</button>
+            {% endblock %}
+        </form>
+    {% endif %}
+{% endblock %}

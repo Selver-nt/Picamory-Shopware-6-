@@ -1,0 +1,92 @@
+{% block page_account_overview_addresses %}
+    <div class="row js-account-overview-addresses">
+        {% block page_account_overview_addresses_inner %}
+            {% block page_account_overview_billing_address %}
+                <div class="col-lg-6 card-col account-overview-card overview-billing-address">
+                    {% block page_account_overview_billing_address_card %}
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-body-left">
+                                    {% block page_account_overview_billing_address_content %}
+                                        
+                            {% sw_icon 'location' style { 'pack': 'picagram' } %}<span class="account-overview-title adresse-info">ADRESSE</span>
+                                        {% sw_include '@Storefront/storefront/component/address/address.html.twig' with {'address': context.customer.defaultBillingAddress} %}
+                                    {% endblock %}
+                                </div>
+
+                                {% block page_account_overview_billing_address_actions %}
+                                    <div class="card-actions">
+                                        {% set addressEditorOptions = {
+                                            changeBilling: true,
+                                            csrfToken: sw_csrf("frontend.account.addressbook", {"mode": "token"})
+                                        } %}
+
+                                        <div class="address-action-create">
+                                            <a href="{{ path('frontend.account.address.create.page') }}"
+                                               title="{{ "account.addressCreateBtn"|trans|striptags }}"
+                                               class="btn btn-primary addresse-btn">
+                                                <span>+ Adresse <br>
+                                                     hinzufügen</span>
+                                                
+                                            </a>
+                                        </div>
+
+                                        {% block page_account_overview_billing_address_actions_link %}
+                                            <a href="{{ path('frontend.account.address.edit.page', {'addressId': context.customer.defaultBillingAddress.id}) }}"
+                                               title="{{ "account.overviewChangeBilling"|trans|striptags }}"
+                                               class="btn btn-light"
+                                               data-address-editor="true"
+                                               data-address-editor-options='{{ addressEditorOptions|json_encode }}'>
+                                                {{ "account.overviewChangeBilling"|trans|sw_sanitize }}
+                                            </a>
+                                        {% endblock %}
+                                    </div>
+                                {% endblock %}
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+
+            {% block page_account_overview_shipping_address %}
+                
+                <div class="col-lg-6 card-col account-overview-card account-overview-payment">
+                    {% block page_account_overview_payment_card %}
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-body-left">
+                                    {% sw_icon 'money' style { 'pack': 'picagram' } %}<span class="account-overview-title payment-info">Zahlungsmethode</span>
+                                    {% block page_account_overview_payment_content %}
+                                        <strong>{{ context.customer.defaultPaymentMethod.translated.name }}</strong>
+                                        <p>{{ context.customer.defaultPaymentMethod.description }}</p>
+                                    {% endblock %}
+                                </div>
+
+                                <div class="address-action-create">
+                                    <a href="{{ path('frontend.account.address.create.page') }}"
+                                       title="{{ "account.addressCreateBtn"|trans|striptags }}"
+                                       class="btn btn-primary addresse-btn mb-3">
+                                       <span>+ kreditkarte <br>
+                                        hinzufügen</span>
+                                    </a>
+
+                                    {% block page_account_overview_payment_actions %}
+                                    <div class="card-actions">
+                                        <a href="{{ path('frontend.account.payment.page') }}"
+                                            title="{{ "account.overviewChangePayment"|trans|striptags }}"
+                                            class="btn btn-light">
+                                            {{ "account.overviewChangePayment"|trans|sw_sanitize }}
+                                        </a>
+                                    </div>
+                                {% endblock %}
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+.is-act-finishpage {
+    .content-main {
+        background: $sw-color-brand-primary;
+        background-image: url('/bundles/picagram/media/finish-bg.svg');
+        background-size: cover;
+        background-position: center;
+
+        &> .container {
+            max-width: 100%;
+        }
+    }
+
+    .checkout {
+        padding: 0;
+
+        .checkout-container {
+            margin: auto;
+            max-width: $container-max-width;
+            flex: 1;
+            background: none;
+            box-shadow: none;
+            text-align: center;
+        }
+    }
+
+    .container-main {
+        padding: 0 0 54px;
+    }
+
+    .finish-content {
+        color: #fff;
+
+        img {
+            width: 100%;
+            max-width: 791px;
+            margin: 0 auto 116px;
+        }
+    
+        h1 {
+            margin-bottom: 22px;
+            color: inherit;
+            font-weight: 900;
+            font-size: 50px;
+            line-height: 65px;
+        }
+    
+        p {
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 35px;
+        }
+    }
+}

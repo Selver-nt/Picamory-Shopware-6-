@@ -1,0 +1,35 @@
+{% block page_checkout_summary %}
+    <div class="checkout-aside-summary-container">
+        {% if page.cart %}
+            {% set summary = page.cart %}
+        {% elseif page.order %}
+            {% set summary = page.order %}
+        {% endif %}
+
+        {% set displayRounded = context.totalRounding.interval != 0.01 or context.totalRounding.decimals != context.itemRounding.decimals %}
+        {% set decimals = context.totalRounding.decimals %}
+        {% set total = summary.price.totalPrice %}
+
+        {% if displayRounded %}
+            {% set decimals = context.itemRounding.decimals %}
+            {% set total = summary.price.rawTotal %}
+        {% endif %}
+
+        <dl class="row checkout-aside-summary-list justify-content-between no-gutters {% if displayRounded %}display-rounded{% endif %}">
+            {% block page_checkout_summary_inner %}
+                {% if summary.price.taxStatus == 'gross' %}
+                    {% sw_include '@Storefront/storefront/page/checkout/summary/summary-total.html.twig' with {
+                        'total': total,
+                        'decimals': decimals
+                    } %}
+                {% else %}
+
+                    {% sw_include '@Storefront/storefront/page/checkout/summary/summary-total.html.twig' with {
+                        'total': total,
+                        'decimals': decimals
+                    } %}
+                {% endif %}
+            {% endblock %}
+        </dl>
+    </div>
+{% endblock %}

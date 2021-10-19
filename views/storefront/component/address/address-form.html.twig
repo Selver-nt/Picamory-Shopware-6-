@@ -1,0 +1,85 @@
+{% sw_extends '@Storefront/storefront/component/address/address-form.html.twig' %}
+
+{% block component_address_form_zipcode_city %}
+    {% set zipcodeField %}
+        {% if formViolations.getViolations("/zipcode") is not empty %}
+            {% set violationPath = "/zipcode" %}
+        {% elseif formViolations.getViolations("/#{prefix}/zipcode") is not empty %}
+            {% set violationPath = "/#{prefix}/zipcode" %}
+        {% endif %}
+
+        {% block component_address_form_zipcode_label %}
+            <label class="form-label"
+                    for="{{ prefix }}AddressZipcode">
+                {{ "address.zipcodeLabel"|trans|sw_sanitize }}{{ "general.required"|trans|sw_sanitize }}
+            </label>
+        {% endblock %}
+
+        {% block component_address_form_zipcode_input %}
+            <input type="text"
+                    class="form-control{% if violationPath %} is-invalid{% endif %}"
+                    id="{{ prefix }}AddressZipcode"
+                    placeholder="{{ "address.zipcodePlaceholder"|trans|striptags }}"
+                    name="{{ prefix }}[zipcode]"
+                    value="{{ data.get('zipcode') }}"
+                    required="required">
+        {% endblock %}
+
+        {% block component_address_form_zipcode_error %}
+            {% if violationPath %}
+                {% sw_include '@Storefront/storefront/utilities/form-violation.html.twig' %}
+            {% endif %}
+        {% endblock %}
+    {% endset %}
+
+    {% set cityField %}
+        {% if formViolations.getViolations("/city") is not empty %}
+            {% set violationPath = "/city" %}
+        {% elseif formViolations.getViolations("/#{prefix}/city") is not empty %}
+            {% set violationPath = "/#{prefix}/city" %}
+        {% else %}
+            {% set violationPath = null %}
+        {% endif %}
+
+        {% block component_address_form_city_label %}
+            <label class="form-label"
+                    for="{{ prefix }}AddressCity">
+                {{ "address.cityLabel"|trans|sw_sanitize }}{{ "general.required"|trans|sw_sanitize }}
+            </label>
+        {% endblock %}
+
+        {% block component_address_form_city_input %}
+            <input type="text"
+                    class="form-control{% if violationPath %} is-invalid{% endif %}"
+                    id="{{ prefix }}AddressCity"
+                    placeholder="{{ "address.cityPlaceholder"|trans|striptags }}"
+                    name="{{ prefix }}[city]"
+                    value="{{ data.get('city') }}"
+                    required="required">
+        {% endblock %}
+
+        {% block component_address_form_city_error %}
+            {% if violationPath %}
+                {% sw_include '@Storefront/storefront/utilities/form-violation.html.twig' %}
+            {% endif %}
+        {% endblock %}
+    {% endset %}
+
+    {% if config('core.address.showZipcodeInFrontOfCity') %}
+        <div class="form-group col-md-4 col-8">
+            {{ zipcodeField }}
+        </div>
+
+        <div class="form-group col-md-4 col-8">
+            {{ cityField }}
+        </div>
+    {% else %}
+        <div class="form-group col-md-4 col-8">
+            {{ cityField }}
+        </div>
+
+        <div class="form-group col-md-3 col-4">
+            {{ zipcodeField }}
+        </div>
+    {% endif %}
+{% endblock %}

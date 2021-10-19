@@ -1,0 +1,307 @@
+.content-main {
+    .container-main {
+        padding-top: 0;
+    }
+}
+
+.startpage-hero {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: #000000, $alpha: 0.29);
+    }
+
+    .cms-element-text {
+        padding-top: 5%;
+        padding-bottom: $spacer * 6;
+
+        .picture-headline {
+            color: $listing-headline-color;
+            text-shadow: 0px 3px 6px #00000029;
+            text-transform: uppercase;
+            font-size: 25px;
+            font-weight: 900;
+            margin: 0;
+
+            @include media-breakpoint-up(md) {
+                font-size: 55px;
+                line-height: 65px;
+            }
+        }
+
+        .picture-text {
+            text-transform: uppercase;
+            font-size: $spacer * 6;
+            font-weight: 900;
+            line-height: 50px;
+
+            @include media-breakpoint-up(md) {
+                font-size: 40px;
+            }
+        }
+    }
+
+    .picagram-icons-col {
+        padding: 0;
+    }
+}
+
+.picamory-icons-icon {
+    width: $spacer * 18;
+    height: $spacer * 18;
+
+    @include media-breakpoint-up(md) {
+        width: $spacer * 22;
+        height: $spacer * 22;
+    }
+
+    @include media-breakpoint-up(lg) {
+        width:126px;
+        height:126px;
+    }
+}
+
+.picamory-icons-icon-apple {
+    height: $spacer * 18;
+    margin: auto;
+
+    @include media-breakpoint-up(md) {
+        height: $spacer * 22;
+    }
+
+    @include media-breakpoint-up(lg) {
+        height:127px;
+    }
+}
+
+.startpage-text {
+    h2 {
+        text-transform: uppercase;
+        line-height: 1.3;
+        margin: auto;
+        margin-top: $spacer * 17;
+        margin-bottom: $spacer * 6;
+        font-weight: 900;
+        font-size: 24px;
+
+        @include media-breakpoint-up(md) {
+            font-size: 40px;
+            line-height: 50px;
+        }
+    }
+
+    p {
+        color: $black;
+        font-weight: 700;
+        width: 100%;
+        font-size: 18px;
+
+        @include media-breakpoint-up(md) {
+            font-size: 18px;
+            line-height: 25px;
+        }
+    }
+}
+
+.startpage-pictures {
+    .cms-row {
+        .col-md-6 {
+            padding: 0;
+        }
+    }
+}
+
+.startpage-picagram-app {
+    h2 {
+        line-height: 1.3;
+        text-transform: uppercase;
+        margin-bottom: $spacer * 6;
+        font-size: $spacer * 6;
+        font-weight: 900;
+
+        @include media-breakpoint-up(md) {
+            font-size: 40px;
+            line-height: 50px;
+        }
+    }
+
+    p {
+        color: $black;
+        font-size: $spacer * 6;
+        font-weight: 700;
+
+        @include media-breakpoint-up(md) {
+            font-size: 18px;
+            line-height: 25px;
+        }
+    }
+}
+
+.cms-section.bg-image.startpage-bottom-section {
+    background-position: 45% 21%;
+    background-size: initial !important;
+    padding-bottom: 86px;
+
+    .startpage-bottom {
+        .col-md-4 {
+            padding: 0 10px;
+            padding-bottom: 10px;
+
+            @include media-breakpoint-up(lg) {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+.cms-image {
+    margin: auto;
+}
+
+.listingpage-hero {
+    .startpage-hero {
+        .cms-element-text {
+            padding-top: 15%;
+            padding-bottom: 25%;
+        }
+    }
+}
+
+.lc-block {
+    max-width: 1000px;
+    margin: 0 ;
+    align-items: center;
+    margin-top: 86px;
+
+    @include media-breakpoint-up(xl) {
+        margin: 0 280px;
+        margin-top: 86px;
+    }
+}
+
+.stars-section {
+    .headline-stars {
+        font-size: 30px;
+        line-height: 65px;
+        text-transform: uppercase;
+        color: #12336B;
+        margin-bottom: $spacer * 7;
+        font-weight: 900;
+
+        @include media-breakpoint-up(lg) {
+            font-size: $spacer * 10;
+        }
+
+        @include media-breakpoint-up(xl) {
+        font-size: $spacer * 13;
+        }
+    }
+
+    .stars-container {
+        text-align: center;
+    }
+}
+
+.cms-section.bg-image.startpage-text {
+    background-position: right -76.1875rem bottom -64rem;
+    background-size: initial !important;
+    padding-bottom: 86px;
+
+    @include media-breakpoint-up(md) {
+        background-position: right -48.1875rem bottom -93rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        background-position: right -31.1875rem bottom -92rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        background-position: right -471px bottom -1504px;
+    }
+}
+
+.download-buttons {
+    img {
+        width: 309px;
+        height: 90px;
+
+        @include media-breakpoint-up(md) {
+            width: 309px;
+            height: 90px;    
+        }
+
+        @include media-breakpoint-up(xl) {
+            width: 430px;
+            height: 120px;    
+        }
+    }
+}
+
+
+.impressum-section {
+   background-size: auto !important;
+
+    .impressum-white-container {
+        max-width: 1540px;
+        padding-top: 49px;
+        padding-left: 62px;
+        padding-right: 62px;
+        padding-bottom: $spacer * 17;
+        background: $white;
+        border: 6px solid $white;
+        border-radius: 20px;
+        box-shadow: 0px 3px 6px #00000029;
+
+        @include media-breakpoint-up(md) {
+            padding-left: $spacer * 17;
+            padding-right: $spacer * 17;
+         }
+
+        .impressum-headline {
+            font-size: $spacer * 8;
+            line-height: $spacer * 13;
+            text-transform: uppercase;
+            margin-bottom: $spacer * 10;
+            color: $impressum-color;
+
+            @include media-breakpoint-up(md) {
+               font-size: $spacer * 11;   
+            }
+        }
+
+        .impressum-text {
+            font-size: $spacer * 6;
+            line-height: $spacer * 9;
+            color: $black;
+            font-weight: bold;
+            margin: 0;
+
+            @include media-breakpoint-up(md) {
+                font-size: $spacer * 6;   
+            }
+        }
+    }
+}
+
+.uber-uns-hero {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: #000000, $alpha: 0.29);
+        z-index: 9;
+    }
+}

@@ -1,0 +1,13 @@
+{% block page_checkout_summary_total %}
+    {% block page_checkout_summary_total_label %}
+        <dt class="col-auto checkout-aside-summary-label checkout-aside-summary-total">
+            {{ "checkout.summaryTotalPrice"|trans|sw_sanitize }}
+        </dt>
+    {% endblock %}
+
+    {% block page_checkout_summary_total_value %}
+        <dd class="col-auto checkout-aside-summary-value checkout-aside-summary-total">
+            {{ summary.price.totalPrice  }}<span class="ml-5">EURO</span>{% if page.cart.price.taxStatus == "gross" %}{% endif %}
+        </dd>
+    {% endblock %}
+{% endblock %}

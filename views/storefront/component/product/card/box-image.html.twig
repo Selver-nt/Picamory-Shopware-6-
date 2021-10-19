@@ -1,0 +1,33 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-image.html.twig' %}
+
+{% block component_product_box_info %}
+    <div class="product-info">
+        <div class="row product-information">
+            <div class="col">
+                {% block component_product_box_name %}
+                    <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}"
+                        class="product-name"
+                        title="{{ name }}">
+                        {{ name }}
+                    </a>
+                {% endblock %}
+                
+                {% block component_product_box_variant_characteristics %}
+                    <div class="product-variant-characteristics">
+                        <div class="product-variant-characteristics-text">
+                            <span class="product-variant-characteristics-option">
+                                {{ product.translated.customFields.custom_product_info5 }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+            
+            <div class="col-auto">
+                {% block component_product_box_price %}
+                    {% sw_include '@Storefront/storefront/component/product/card/price-unit.html.twig' %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

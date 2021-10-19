@@ -1,0 +1,198 @@
+/*
+Override variable defaults
+==================================================
+This file is used to override default SCSS variables from the Shopware Storefront or Bootstrap.
+
+Because of the !default flags, theme variable overrides have to be declared beforehand.
+https://getbootstrap.com/docs/4.0/getting-started/theming/#variable-defaults
+*/
+
+.container {
+  max-width: 1440px;
+}
+
+
+
+$black: #000;
+$white: #fff;
+$blue:  #12336B;
+$impressum-color: #6d7cae;
+$listing-headline-color: #FFD684;
+
+$theme-colors: (
+  "black":      $black
+);
+
+// spacers
+$spacer: 4px;
+
+$spacers: (
+  0: 0,
+  1: $spacer, //4px
+  2: $spacer * 2, //8px
+  3: $spacer * 3, //12px
+  4: $spacer * 6, //16px
+  5: $spacer * 5, //20px
+  6: $spacer * 6, //24px
+  7: $spacer * 7, //28px
+  8: $spacer * 8, //32px
+  9: $spacer * 9, //36px
+  10: $spacer * 10, //40px
+  11: $spacer * 11, //44px
+  12: $spacer * 12, //48px
+  13: $spacer * 13, //52px
+  14: $spacer * 14, //56px
+  15: $spacer * 15, //60px
+  16: $spacer * 16, //64px
+  17: $spacer * 17, //68px
+  18: $spacer * 18, //72px
+  19: $spacer * 19, //76px
+  20: $spacer * 20, //80px
+  21: $spacer * 21, //84px
+  22: $spacer * 22, //88px
+);
+
+// Grid columns
+$grid-gutter-width: 30px;
+
+$gutters: $spacers;
+
+// containers
+$container-padding-x: $grid-gutter-width / 2;
+$container-max-width: 1440px;
+
+// box-shadow
+$box-shadow: 0px 13px 20px #00000029;
+
+// border
+$border-width: 1px;
+$border-widths: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
+);
+
+$border-radius: 20px;
+$border-radius-sm: 11px;
+$border-radius-lg: 40px;
+
+// links
+$link-color: #E59084;
+$link-hover-decoration: none;
+
+// font-weight
+$font-weight-semibold: 500;
+
+// font sizes
+$font-size-root: 16px;
+$font-size-base: 1.563rem; //18px
+$font-size-sm: 0.75rem; //12px
+$font-size-lg: 1.375rem; //22px
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+// headings
+$headings-font-style: normal;
+$headings-font-weight: bold;
+
+// buttons
+$btn-padding-y: 21px;
+$btn-padding-x: 30px;
+$btn-font-size: $font-size-base; //25px
+$btn-line-height: 35px;
+$btn-font-weight: bold;
+$btn-border-width: 0;
+$btn-box-shadow: 0px 3px 6px #00000029;
+$btn-focus-box-shadow: 0px 3px 6px #00000029;
+$btn-active-box-shadow: 0px 3px 6px #00000029;
+$btn-border-radius: $border-radius-sm;
+$btn-border-radius-sm: $btn-border-radius;
+$btn-border-radius-lg: $btn-border-radius;
+$btn-focus-width: 0;
+
+$btn-padding-y-sm: 15px;
+$btn-padding-x-sm: 22px;
+$btn-font-size-sm: 18px;
+$btn-line-height-sm: 20px;
+
+$btn-padding-y-lg: $btn-padding-y;
+$btn-padding-x-lg: $btn-padding-x;
+$btn-font-size-lg: $btn-font-size;
+$btn-line-height-lg: $btn-line-height;
+
+// forms
+$form-group-margin-bottom: 32px;
+$form-grid-gutter-width: 30px;
+
+// input buttons
+$input-btn-focus-box-shadow: $box-shadow;
+
+// // inputs
+$input-height: auto;
+$input-padding-y: 21px;
+$input-padding-x: 1.813rem;
+$input-font-size: 24px; //24px
+$input-font-weight: bold;
+$input-line-height: 1.25;
+$input-color: #ECD5D1;
+$input-border-width: 1px;
+$input-border-color: #000000;
+$input-focus-border-color: #000000;
+$input-border-radius: $border-radius-lg;
+$input-bg: transparent;
+$input-placeholder-color: #ECD5D1;
+$input-box-shadow: $box-shadow;
+$input-focus-box-shadow: $box-shadow;
+
+// select
+$custom-select-height: auto;
+$custom-select-padding-y: $input-padding-y;
+$custom-select-padding-x: $input-padding-x;
+$custom-select-font-size: $input-font-size;
+$custom-select-font-weight: $input-font-weight;
+// $custom-select-line-height: $input-line-height;
+$custom-select-color: $input-color;
+$custom-select-border-width: $input-border-width;
+$custom-select-border-radius: $input-border-radius;
+$custom-select-bg: $input-bg;
+$custom-select-box-shadow: $box-shadow;
+$custom-select-focus-box-shadow: $box-shadow;
+
+// // form indicators(checkbox)
+$custom-control-indicator-size: 2.375rem;
+$custom-control-indicator-bg: transparent;
+$custom-control-indicator-checked-bg: $sw-color-brand-primary;
+$custom-control-indicator-checked-color: #fff;
+$custom-checkbox-indicator-border-radius: 50%;
+$custom-control-indicator-border-width: 1px;
+$custom-control-indicator-border-color: $sw-color-brand-primary;
+$custom-control-indicator-checked-border-color: $custom-control-indicator-border-color;
+$custom-control-indicator-box-shadow: none;
+$custom-checkbox-indicator-indeterminate-box-shadow: none;
+
+// // Dropdowns
+$dropdown-padding-x: 39px;
+$dropdown-padding-y: 22px;
+$dropdown-border-radius: $border-radius-sm;
+$dropdown-border-width: 0;
+$dropdown-header-color: $sw-text-color;
+
+// // Cards
+$card-spacer-x: 0;
+$card-border-width: 0;
+$card-cap-bg: transparent;
+
+// // Nav
+$nav-tabs-border-width: 0;
+
+// // Modals
+$modal-md: 900px;
+$modal-content-border-radius: $border-radius-sm;

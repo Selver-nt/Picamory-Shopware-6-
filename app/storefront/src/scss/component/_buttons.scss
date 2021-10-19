@@ -1,0 +1,29 @@
+.btn-secondary {
+    padding: 21px 46px;
+    background: transparent linear-gradient(90deg, #FFD06C 0%, #D78275 40%, #B42762 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 35px;
+    text-transform: uppercase;
+}
+
+.btn-link {
+    padding: 0;
+    color: #12336B;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 35px;
+    text-decoration: underline;
+    text-transform: uppercase;
+
+    .icon {
+        color: inherit;
+
+        &> svg {
+            color: inherit;
+        }
+    }
+}

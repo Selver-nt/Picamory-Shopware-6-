@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/component/account/register.html.twig' %}
+
+{% block component_account_register_personal_account_fields %}
+    {% block page_checkout_register_personal_guest %}
+       
+    {% endblock %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block component_account_register_form_action %}
+    <input type="hidden"
+           name="errorRoute"
+           value="frontend.checkout.register.page"/>
+{% endblock %}

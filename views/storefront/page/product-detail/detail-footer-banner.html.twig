@@ -1,0 +1,23 @@
+<div class="product-detail-banner">
+    <div class="container">
+        <div class="detail-banner-image">
+            <img src="{{ page.product.cover.media.url }}" alt="{{ page.product.cover.media.alt }}">
+        </div>
+        <div class="detail-banner-text">
+            <div class="row">
+                <div class="mb-5 col-md-4">
+                {{ "detail.bannerTextFirst"|trans|sw_sanitize }}
+                <img src="/bundles/picagram/media/stars.png" alt="">
+                </div>
+                <div class="mb-5 col-md-4">
+                {{ "detail.bannerTextSecond"|trans|sw_sanitize }}
+                <img src="/bundles/picagram/media/stars.png" alt="">
+                </div>
+                <div class="mb-5 col-md-4">
+                {{ "detail.bannerTextThird"|trans|sw_sanitize }}
+                <img src="/bundles/picagram/media/stars.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
